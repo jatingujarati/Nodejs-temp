@@ -68,7 +68,7 @@ exports.removeCache = (isUserSpecific = false, isResetMyCache = false, isResetAl
 exports.setCache = (key, message, result, pages = null, total = null) => {
   let cacheData = { message, result };
   cacheData = pages ? { ...cacheData, pages, total } : cacheData;
-  client.setEx(`lab/${key}`, cacheExpTime, JSON.stringify(cacheData));
+  client.setEx(`cache/${key}`, cacheExpTime, JSON.stringify(cacheData));
 }
 
 exports.client = client;
